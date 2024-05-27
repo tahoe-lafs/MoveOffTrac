@@ -1,0 +1,13 @@
+Babel==2.9.1
+docutils==0.18.1
+Genshi==0.7.7
+html5lib==1.1
+Pygments==2.5.2
+pytz==2024.1
+six==1.16.0
+textile==3.0.4
+Trac==1.0.13
+TracAccountManager==0.6.0
+TracHTTPAuth==1.2
+TracXMLRPC==1.1.9
+webencodings==0.5.1

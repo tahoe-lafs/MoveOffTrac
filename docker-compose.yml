@@ -1,0 +1,60 @@
+# Docker compose file to support dev+ops activities
+version: '3'
+services:
+  trac:
+    build:
+      context: docker/trac
+      dockerfile: Dockerfile
+      args:
+        user: appuser
+        group: appgroup
+        uid: "${_UID:-1000}"
+        gid: "${_GID:-1000}"
+    volumes:
+      - ./trac:/var/lib/appdata
+      - ./trac/public_html:/trac/chrome
+      - ./trac/repos:/home/sources/git
+    working_dir: /var/lib/appdata
+    stdin_open: true
+    tty: true
+    hostname: trac.local
+    container_name: trac.local
+    ports:
+      - "${TRAC_PORT:-8000}:${TRAC_PORT:-8000}/tcp"
+    #command: /bin/bash
+    command: tracd --port ${TRAC_PORT:-8000} --auth="Tahoe-LAFS,./Tahoe-LAFS/conf/user_passwd,tahoe-lafs.org" ./Tahoe-LAFS
+    network_mode: "bridge"
+    # Prevents container to hang the host
+    # Requires `... --compatibility run ...`
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 256M
+
+  gitea:
+    build: 
+      context: docker/gitea
+      dockerfile: Dockerfile
+    volumes:
+      - ./gitea/conf:/etc/gitea
+      - ./gitea/data:/var/lib/gitea
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    working_dir: /var/lib/appdata
+    ports:
+      - "3000:3000"
+      - "2222:2222"
+    #command: /bin/bash
+    stdin_open: true
+    tty: true
+    hostname: gitea.local
+    container_name: gitea.local
+    network_mode: "bridge"
+    # Prevents container to hang the host
+    # Requires `... --compatibility run ...`
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 256M
