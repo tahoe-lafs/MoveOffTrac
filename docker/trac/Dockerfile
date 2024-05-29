@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 # Application level requirements #
 ##################################
 # Install required packages
-RUN INSTALL_PKGS="git" && \
+RUN INSTALL_PKGS="git gcc libssl-dev" && \
     apt-get -q clean && \
     apt-get -q update && \
     apt-get install -y $INSTALL_PKGS && \
