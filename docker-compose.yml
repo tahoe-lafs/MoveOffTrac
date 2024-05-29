@@ -11,9 +11,11 @@ services:
         uid: "${_UID:-1000}"
         gid: "${_GID:-1000}"
     volumes:
-      - ./trac:/var/lib/appdata
-      - ./trac/public_html:/trac/chrome
-      - ./trac/repos:/home/sources/git
+      - ./trac/tahoe-lafs:/var/lib/appdata/tahoe-lafs
+      - ./trac/public_html:/var/lib/appdata/tahoe-lafs/htdocs
+      - ./trac/log:/var/lib/appdata/tahoe-lafs/log
+      - ./trac/trac.htdigest:/home/trac/trac.htdigest
+      - ./trac/repos:/home/source/git
     working_dir: /var/lib/appdata
     stdin_open: true
     tty: true
@@ -21,8 +23,7 @@ services:
     container_name: trac.local
     ports:
       - "${TRAC_PORT:-8000}:${TRAC_PORT:-8000}/tcp"
-    #command: /bin/bash
-    command: tracd --port ${TRAC_PORT:-8000} --auth="Tahoe-LAFS,./Tahoe-LAFS/conf/user_passwd,tahoe-lafs.org" ./Tahoe-LAFS
+    command: tracd --port ${TRAC_PORT:-8000} ./tahoe-lafs
     network_mode: "bridge"
     # Prevents container to hang the host
     # Requires `... --compatibility run ...`
