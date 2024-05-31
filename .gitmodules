@@ -1,0 +1,3 @@
+[submodule "trac2gitea"]
+	path = trac2gitea
+	url = https://github.com/btlogy/trac2gitea
