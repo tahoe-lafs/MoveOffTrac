@@ -11,11 +11,12 @@ services:
         uid: "${_UID:-1000}"
         gid: "${_GID:-1000}"
     volumes:
-      - ./trac/tahoe-lafs:/var/lib/appdata/tahoe-lafs
-      - ./trac/public_html:/var/lib/appdata/tahoe-lafs/htdocs
-      - ./trac/log:/var/lib/appdata/tahoe-lafs/log
+      - ./trac/project:/var/lib/appdata/project
+      - ./trac/public_html:/var/lib/appdata/project/htdocs
+      - ./trac/log:/var/lib/appdata/project/log
       - ./trac/trac.htdigest:/home/trac/trac.htdigest
       - ./trac/repos:/home/source/git
+      - ./trac/backup:/var/lib/appdata/backup
     working_dir: /var/lib/appdata
     stdin_open: true
     tty: true
@@ -23,7 +24,7 @@ services:
     container_name: trac.local
     ports:
       - "${TRAC_PORT:-8000}:${TRAC_PORT:-8000}/tcp"
-    command: tracd --port ${TRAC_PORT:-8000} ./tahoe-lafs
+    command: tracd --port ${TRAC_PORT:-8000} ./project
     network_mode: "bridge"
     # Prevents container to hang the host
     # Requires `... --compatibility run ...`
@@ -42,6 +43,9 @@ services:
       - ./gitea/data:/var/lib/gitea
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - ./trac:/var/lib/appdata/trac
+      - ./trac2gitea:/var/lib/appdata/trac2gitea
+      - ./gitea/backup:/var/lib/appdata/gitea/backup
     working_dir: /var/lib/appdata
     ports:
       - "3000:3000"
@@ -59,3 +63,32 @@ services:
         limits:
           cpus: '1.5'
           memory: 256M
+
+  go-shell:
+    build:
+      context: docker/go
+      dockerfile: Dockerfile
+      args:
+        user: appuser
+        group: appgroup
+        uid: "${_UID:-1000}"
+        gid: "${_GID:-1000}"
+    environment:
+      - GOCACHE=/var/lib/appdata/.gocache
+    volumes:
+      - ./trac2gitea:/var/lib/appdata
+      - ./.gocache:/var/lib/appdata/.gocache
+    working_dir: /var/lib/appdata
+    #command: /bin/bash
+    stdin_open: true
+    tty: true
+    hostname: go-shell.local
+    container_name: go-shell.local
+    network_mode: "bridge"
+    # Prevents container to hang the host
+    # Requires `... --compatibility run ...`
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 512M
