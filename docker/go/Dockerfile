@@ -1,9 +1,9 @@
 # Start from the official Go image based on Alpine
-FROM golang:1.19.3-alpine
+FROM golang:1.22.4-alpine
 
 LABEL Description="Trac2Gitea migration tool"
 
-RUN apk --no-cache add gcc libc-dev make
+RUN apk --no-cache add gcc git libc-dev make
 
 # Parameters for default user:group
 ARG uid=1000
@@ -23,18 +23,12 @@ RUN DIRS="/src /app" && \
 # Switch to non-root user
 USER ${user}
 
-# Inject the source code
-#COPY *.go go.* accessor/* importer log markdown /src/
+# Install mockgen
+#RUN go install go.uber.org/mock/mockgen@v0.4.0
+#RUN ln -s /go /home/${user}/go
 
-# Download deps, build the app and cleanup the source
-WORKDIR /src
+# Install pinned dependencies
+#COPY go.mod go.sum /src
+#WORKDIR /src
 #RUN go mod download && \
 #    go mod verify
-
-#RUN go build -o /app/trac2gitea -ldflags '-extldflags "-static"' -buildvcs=false -v
-
-# Switch to app directory
-#WORKDIR /app
-
-# Run the app by default
-#CMD ./trac2gitea
