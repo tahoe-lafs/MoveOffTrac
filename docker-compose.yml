@@ -32,7 +32,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.5'
+          cpus: '0.5'
           memory: 256M
 
   gitea:
@@ -62,7 +62,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.5'
+          cpus: '0.5'
           memory: 256M
 
   go-shell:
@@ -91,5 +91,5 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.5'
+          cpus: '0.5'
           memory: 512M
