@@ -17,6 +17,7 @@ services:
       - ./trac/trac.htdigest:/home/trac/trac.htdigest
       - ./trac/repos:/home/source/git
       - ./trac/backup:/var/lib/appdata/backup
+      - ./helpers:/var/lib/appdata/helpers
     working_dir: /var/lib/appdata
     stdin_open: true
     tty: true

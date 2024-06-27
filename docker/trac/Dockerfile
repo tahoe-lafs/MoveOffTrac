@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 # Application level requirements #
 ##################################
 # Install required packages
-RUN INSTALL_PKGS="git gcc libssl-dev" && \
+RUN INSTALL_PKGS="git gcc libssl-dev sqlite3" && \
     apt-get -q clean && \
     apt-get -q update && \
     apt-get install -y $INSTALL_PKGS && \
