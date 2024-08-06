@@ -15,6 +15,10 @@ fi
 TRAC_DIR=${1?Path to trac directory is missing as first argument!}
 DUMP_DIR=${2?Path to dump directory is missing as second argument!}
 
+# Prepare for more args
+shift
+shift
+
 trac-admin "${TRAC_DIR}" hotcopy "${DUMP_DIR}"
 
 echo "Purging sessions ..."
@@ -26,8 +30,8 @@ sqlite3 "${DUMP_DIR}/db/trac.db" 'VACUUM;'
 echo "Vaccum done"
 
 echo "Purging logs ..."
-rm -f "${DUMP_DIR}/log/*"
-echo "Purge log done"
+rm -f ${DUMP_DIR}/log/*
+echo "Purge logs done"
 
 echo "Dumping additional files ..."
 for SRC in "${@}"; do
