@@ -60,6 +60,8 @@ Moving off Trac leads to consider different software offering similar features/p
 
 ### Forgejo on self-hosted NixOS
 
+Same as Gitea on self-hosted NixOS, only different CI and gh-pages solutions.
+
 ### Forgejo on Codeberg
 
 #### Pros
