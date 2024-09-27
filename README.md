@@ -1,11 +1,15 @@
 # MoveOffTrac
 
-Some code to support the migration off trac.
+Some code and documentation to support the migration off Trac.
 
 ## Abstract
 
-The main idea is to use Docker containers to emulate a local enviroment similar to the source and target ones.
-This means we do NOT care about secrets (in the `gitea/app.ini`).
+For a while, the Tahoe-LAFS project has been using a self-hosted Trac as an issue traker, a wiki and a landing page.
+This repository is an attempt to consolidate the code, the documentation of the project and the tools supporting the migration of those features elsewhere.
+
+The starting point of this repository was to use Docker containers to emulate local environments similar to the source and target, so we can test and improve the migration itself before the D-day (so we do NOT care about secrets, for instance in the `gitea/app.ini`).
+
+In addition, the [documentation](./docs) folder should help the reader to understand scope and plan for the migration itself (aside from the tooling describes below).
 
 ## Requirements
 
@@ -67,4 +71,3 @@ Build the tool following the instruction in `trac2gitea/README.md`:
 make alldeps
 make
 ```
-
