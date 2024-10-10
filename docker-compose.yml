@@ -106,8 +106,8 @@ services:
     working_dir: /var/lib/appdata
     environment:
       # Required for Gandi resources
-      - TF_VAR_gandi_url=${GANDI_URL}
       - TF_VAR_gandi_token=${GANDI_TOKEN}
+      - TF_VAR_gandi_url=${GANDI_URL}
       # Required for Hetzner resources
       - TF_VAR_hcloud_token=${HCLOUD_TOKEN}
     entrypoint: /bin/sh

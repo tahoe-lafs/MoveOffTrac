@@ -50,6 +50,7 @@ jobs:
         working-directory: ${{ inputs.tf_dir }}
     env:
       TF_VAR_gandi_token: ${{ secrets.gandi_token }}
+      TF_VAR_gandi_url: ${{ secrets.gandi_url }}
       TF_VAR_hcloud_token: ${{ secrets.hcloud_token }}
     permissions:
       pull-requests: write
