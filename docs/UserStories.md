@@ -1,15 +1,19 @@
-# User stories for roles
+# User stories
 
-As a migrator...
-- I need to run a solid sprint of real team work within (xx) weeks, 
-- so that I can still have time to make repair (because no roll-back and kind of forced - but good reason to step on self-hosted for better control).
+The following sections describe the different roles that an actor can haveplay while using the (source and/or target) system covered by this (migration) project.
 
-As anoynymous (Tahoe-LAFS) end-user...
+## As anoynymous user (Tahoe-LAFS end-user)
+
+I expect...
+
 - Fully read only
 - NOT create issues
 - register an account
 
-As a (authenticated) non-collaborator users I expect to
+## As an authenticated user (non-collaborator)
+
+I expect...
+
 - All previous activities
 - link existing local account to Github account (Oauth)
 - Create new issues, possibly confidential (e.g.: 0-day?)
@@ -20,7 +24,10 @@ As a (authenticated) non-collaborator users I expect to
 - submit code for review (eg. draft vs submit for review - label for this like waiting for review?)
 - Understand the source lifecycle. What's next when the PR is review and merged?
 
-As a project/org collaborator/owner (includes code reviewer?) I expect to
+## As a project/org collaborator/owner (includes code reviewer?)
+
+I expect...
+
 - All previous activities
 - see/notify for new issues, and possibly confidential
 - CRUD issue ownership
@@ -28,3 +35,8 @@ As a project/org collaborator/owner (includes code reviewer?) I expect to
 - Close/Lock Issues
 - CRUD **confidential** Issues (zero day security, responsible disclosure, etc.)
 - Pro tip: authors of approved PRs can add content and comment
+
+## As a migrator
+
+- I need to run a solid sprint of real team work within (xx) weeks, 
+- so that I can still have time to make repair (because no roll-back and kind of forced - but good reason to step on self-hosted for better control).
