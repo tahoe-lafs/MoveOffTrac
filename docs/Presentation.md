@@ -1,11 +1,17 @@
 # Move Off Trac
 
+Presentation of the migration plan
+
+===
+
 ## What?
 
 * issue tracker
 * wiki pages
 * landing page
 * code mirror
+
+===
 
 ## Why?
 
@@ -17,6 +23,7 @@
   * no interest in updating the software
 * very slow today
 
+===
 
 ## Where?
 
@@ -51,9 +58,15 @@ In depth:
   * Gitea has a strong community and a well-known hosting provider (gitea.com)
   * ForgeJo has a similar community with some hosting providers but is more free (speech)
 
+===
+
 ## How?
 
-* Self-hosted VPS:
-  * required step to migrate from Trac to Gitea/Forgejo (or anything else)
+1. Self-hosted VPS
+  * required step to migrate from Trac to Gitea/Forgejo first before being able to move elsewhere
   * required to catch and redirect legacy URLs (e.g.: from PR's on GitHub) - unless we can do it with some webpages
   * required to proxy legacy site(s) and monitor access logs before termination
+
+2. SaaS
+
+===
