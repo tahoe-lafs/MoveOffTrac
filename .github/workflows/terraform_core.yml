@@ -1,0 +1,32 @@
+# Workflow to continuously integrate Terraform plan for Tahoe-LAFS
+# The deployment is not covered (yet), as it will require to auto commit
+# both the `terraform.state` and `.terraform/terraform.state` files when
+# apply_on_branch is enabled.
+
+name: Terraform Core
+concurrency: terraform_core_state
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/_terraform.yml'
+      - '.github/workflows/terraform_core.yml'
+      - 'terraform/core/**'
+  pull_request:
+    paths:
+      - '.github/workflows/_terraform.yml'
+      - '.github/workflows/terraform_core.yml'
+      - 'terraform/core/**'
+  workflow_dispatch:
+
+jobs:
+  call-workflow-passing-data:
+    # Call the re-usable Terraform workflow
+    uses: ./.github/workflows/_terraform.yml
+    with:
+      tf_dir: terraform/core
+      gandi_url: 'https://api.sandbox.gandi.net'
+    secrets:
+      gandi_token: ${{ secrets.GANDI_TOKEN }}

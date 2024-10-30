@@ -93,3 +93,33 @@ services:
         limits:
           cpus: '0.5'
           memory: 512M
+
+  terraform-shell:
+    build:
+      context: docker/terraform
+      dockerfile: Dockerfile
+      args:
+        uid: "${_UID:-1000}"
+        gid: "${_GID:-1000}"
+    volumes:
+      - .:/var/lib/appdata
+    working_dir: /var/lib/appdata
+    environment:
+      # Required for Gandi resources
+      - TF_VAR_gandi_token=${GANDI_TOKEN}
+      - TF_VAR_gandi_url=${GANDI_URL}
+      # Required for Hetzner resources
+      - TF_VAR_hcloud_token=${HCLOUD_TOKEN}
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
+    hostname: terraform-shell.local
+    container_name: terraform-shell.local
+    network_mode: "bridge"
+    # Prevents container to hang the host
+    # Requires `... --compatibility run ...`
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 256M
