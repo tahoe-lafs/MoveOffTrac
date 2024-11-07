@@ -30,7 +30,7 @@ I expect to be able to...
 6. view the source code
 7. register an account to become a contributor (e.g.: to create issues)
 
-## As Tahoe-LAFS contributor as non-collaborator = authenticated user
+## As Tahoe-LAFS contributor = authenticated user
 
 I expect to be able to...
 
@@ -48,33 +48,46 @@ I expect to be able to...
 - close any ticket/issue (if not automatically closed when the related PR is merged)
 - re-open any closed ticket/issue
 
-## As a Tahoe-LAFS collaborator/reviewer/maintainer?
+## As a Tahoe-LAFS maintainer = privileged user
 
 I expect to be able to...
 
 - act as a contributor (described above), in addition to the following activities
 - be notified for new/changed wiki pages proposed by contibutors
-- approve/alter/publish new/changes wiki pages
+- approve/publish new/changes wiki pages
 - unpublish/delete wiki pages
 - be notified for new tickets/issues, and possibly confidential
 - update tickets/issue (for triage):
+  - title and description
   - owner/assignee(s)
-  - type
-  - priority
-  - component
-  - version
-  - milestone
-  - resolution
+  - type, priority, component, version, milestone, resolution
   - other keywords/labels
+- CRUD types, priorities, components, versions, milestones and resolutions available for tickets/issues
+- CRUD other keywords/labels available for ticket/issues
 - lock/close tickets/issues
 
-### Questions left:
+#### Questions left:
 
+- can a contributor create keywords/labels w/o priviledges?
 - how to/who should handle **confidential** tickets/issues (0-day, responsible disclosure, etc.)?
-- are code reviewers always collaborators/maintainers of the project?
-- maybe admin/owner only: add/move collaborators/maintainers?
+- are code reviewers always maintainers/admins of the project?
 - may issues/tickets without PR get closed with `wontfix` or `duplicate`?
 - workflow criteria for source code management: authors of approved PRs can get promoted to add commits to feature branches?
+
+## As a Tahoe-LAFS admin
+
+I expect to be able to...
+
+- act as a maintainer (described above), in addition to the following activities
+- add/remove maintainers
+
+## As a Tahoe-LAFS owner
+
+I expect to be able to...
+
+- act as a maintainer (described above), in addition to the following activities
+- add/remove admin
+- add/remove projects
 
 ## As a migrator
 
