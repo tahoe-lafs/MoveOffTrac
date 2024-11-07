@@ -48,7 +48,7 @@ I expect to be able to...
 - close any ticket/issue (if not automatically closed when the related PR is merged)
 - re-open any closed ticket/issue
 
-## As a Tahoe-LAFS maintainer = privileged user
+## As a Tahoe-LAFS maintainer = power user
 
 I expect to be able to...
 
@@ -74,14 +74,14 @@ I expect to be able to...
 - may issues/tickets without PR get closed with `wontfix` or `duplicate`?
 - workflow criteria for source code management: authors of approved PRs can get promoted to add commits to feature branches?
 
-## As a Tahoe-LAFS admin
+## As a Tahoe-LAFS admin = super user
 
 I expect to be able to...
 
 - act as a maintainer (described above), in addition to the following activities
 - add/remove maintainers
 
-## As a Tahoe-LAFS owner
+## As a Tahoe-LAFS owner = root user
 
 I expect to be able to...
 
