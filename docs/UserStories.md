@@ -34,37 +34,37 @@ I expect to be able to...
 
 I expect to be able to...
 
-- act as an end-user (described above), in addition to the following activities
-- link my existing local account to Github account (OAuth)
-- propose new wiki pages and/or changes in the existing ones
-- create new issues, possibly confidential (e.g.: 0-day?)
-- comment on any tickets/issues
-- associate (link) my work to existing tickets/issues
-- mention (link) related tickets/issues
-- (out-of-scope: test before submitting PR => Github and CI?)
-- submit code/wiki changes for review (eg. draft vs submit for review - label for this like waiting for review?)
-- understand the source lifecycle (eg. what's next when the PR is review and merged and is my ticket/issue automaticly closed?)
-- be notified of changes made on the tickets/issues I'm linked to
-- close any ticket/issue (if not automatically closed when the related PR is merged)
-- re-open any closed ticket/issue
+1. act as an end-user (described above), in addition to the following activities
+2. link my existing local account to Github account (OAuth)
+3. propose new wiki pages and/or changes in the existing ones
+4. create new issues, possibly confidential (e.g.: 0-day?)
+5. comment on any tickets/issues
+6. associate (link) my work to existing tickets/issues
+7. mention (link) related tickets/issues
+8. (out-of-scope: test before submitting PR => Github and CI?)
+9. submit code/wiki changes for review (eg. draft vs submit for review - label for this like waiting for review?)
+10 understand the source lifecycle (eg. what's next when the PR is review and merged and is my ticket/issue automaticly closed?)
+11. be notified of changes made on the tickets/issues I'm linked to
+12. close any ticket/issue (if not automatically closed when the related PR is merged)
+13. re-open any closed ticket/issue
 
 ## As a Tahoe-LAFS maintainer = power user
 
 I expect to be able to...
 
-- act as a contributor (described above), in addition to the following activities
-- be notified for new/changed wiki pages proposed by contibutors
-- approve/publish new/changes wiki pages
-- unpublish/delete wiki pages
-- be notified for new tickets/issues, and possibly confidential
-- update tickets/issue (for triage):
+1. act as a contributor (described above), in addition to the following activities
+2. be notified for new/changed wiki pages proposed by contibutors
+3. approve/publish new/changes wiki pages
+4. unpublish/delete wiki pages
+5. be notified for new tickets/issues, and possibly confidential
+6. update tickets/issue (for triage):
   - title and description
   - owner/assignee(s)
   - type, priority, component, version, milestone, resolution
   - other keywords/labels
-- CRUD types, priorities, components, versions, milestones and resolutions available for tickets/issues
-- CRUD other keywords/labels available for ticket/issues
-- lock/close tickets/issues
+7. CRUD types, priorities, components, versions, milestones and resolutions available for tickets/issues
+8. CRUD other keywords/labels available for ticket/issues
+9. lock/close tickets/issues
 
 #### Questions left:
 
@@ -78,19 +78,19 @@ I expect to be able to...
 
 I expect to be able to...
 
-- act as a maintainer (described above), in addition to the following activities
-- add/remove maintainers
+1. act as a maintainer (described above), in addition to the following activities
+2. add/remove maintainers
 
 ## As a Tahoe-LAFS owner = root user
 
 I expect to be able to...
 
-- act as a maintainer (described above), in addition to the following activities
-- add/remove admin
-- add/remove projects
+1. act as a maintainer (described above), in addition to the following activities
+2. add/remove admin
+3. add/remove projects
 
-## As a migrator
+## As a migrator = system admin
 
 I expect to be able to...
-- to run a solid sprint of real team work within (xx) weeks, 
-- so that I can still have time to make repair (because no roll-back and kind of forced - but good reason to step on self-hosted for better control).
+1. to run a solid sprint of real team work within (xx) weeks, 
+2. so that I can still have time to make repair (because no roll-back and kind of forced - but good reason to step on self-hosted for better control).
