@@ -9,7 +9,9 @@ The following sections describe the different roles that an actor can haveplay w
   - nobody has done moderation: spam accounts, spam tickets etc have been an ongoing problem (culminating in shutting off accout creation)
   - although we haven't kept it updated, Trac itself has been declining in popularity and maintenance
   - who pays for hosting, DNS, etc?
-- Why do we care about "a wiki"? Can we state these things as actual requirements that don't use the word "wiki"?
+- Why do we care about "a wiki"? I have tried to re-state these as generic requirements, without the word "wiki"
+  - they could be in "git" or otherwise managed
+  - some of "the wiki" is landing-page/web site, some of "the wiki" is documentation etc
 - Trac currently serves "the Web site" for Tahoe-LAFS ("tahoe-lafs.org"):
    - what replaces the "landing page" piece of this?
    - if the above is a Web site:
@@ -17,6 +19,13 @@ The following sections describe the different roles that an actor can haveplay w
       - who pays for that?
       - DNS?
       - how is it administered (e.g. how are changes proposed, agreed-upon and published)?
+- where it says "the software" below, that likely expands to "any software project under the tahoe-lafs org umbrella".
+- it is highly likely that we'd want these as separate "projects" or similar
+
+- Probably out of scope:
+  - we do not currently have "non-public" issues
+  - DNS (it is simple, and it is click-ops for two people currently)
+
 
 ## As Tahoe-LAFS end-user = anoynymous user
 
@@ -35,9 +44,11 @@ I expect to be able to...
 I expect to be able to...
 
 - do everything an "anonymous user" may do
-- propose new issues ("file a ticket")
-- propose new fixes for issues ("open a Pull Request / Merge Request")
-- participate in discussions of both the above ("add a comment")
+- identify an issue with "the Web site"
+- identify an issue with "the documentation"
+- identify an issue with "the software"
+- propose new fixes for any of the above ("open a Pull Request / Merge Request")
+- participate in discussions of any of the above (proposed fixues or issues, including "review")
 - automatically run the tests of any proposed fix ("continuous integration / CI")
 - close an issue (that I created)
 
@@ -52,20 +63,24 @@ nice-to-have:
 I expect to be able to...
 
 - everything in the above two categories
-- be notified for new tickets/issues, and possibly confidential
+- be notified for new tickets/issues
 - update tickets/issue (for triage):
   - title and description
   - owner/assignee(s)
-  - type, priority, component, version, milestone, resolution
-  - other keywords/labels
-- CRUD metadata of tickets/issues
-- lock/close any tickets/issues
+  - CRUD other metadata
+- CRUD available metadata of tickets/issues
+- close any issues
+
+nice to have:
+
+- lock any issues from further changes / discussion
+
 
 #### Questions left:
 
 - can a contributor create keywords/labels w/o priviledges?
-- how to/who should handle **confidential** tickets/issues (0-day, responsible disclosure, etc.)?
-- are code reviewers always maintainers/admins of the project?
+- how to/who should handle **confidential** tickets/issues (0-day, responsible disclosure, etc.)? [meejah: out of scope]
+- are code reviewers always maintainers/admins of the project? [meejah: currently at least write permission]
 - may issues/tickets without PR get closed with `wontfix` or `duplicate`?
 - workflow criteria for source code management: authors of approved PRs can get promoted to add commits to feature branches?
 
@@ -80,6 +95,8 @@ I expect to be able to...
 
 
 ## As a migrator = system admin
+
+meejah: What is this role? Is it time-limited?
 
 I expect to be able to...
 1. to run a solid sprint of real team work within (xx) weeks, 
